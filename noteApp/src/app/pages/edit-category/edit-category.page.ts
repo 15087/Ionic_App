@@ -1,8 +1,9 @@
+import { CategoryService } from './../../services/category.service';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { CategoryService } from 'src/app/services/category.service';
+import { Observable } from 'rxjs';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
-import { Router, ActivatedRoute } from '@angular/router';
+import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-category',
