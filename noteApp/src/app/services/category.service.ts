@@ -49,7 +49,7 @@ export class CategoryService {
     );
   }
 
-  newCategory(data): Observable<any> {
+  addCategory(data): Observable<any> {
     return this.http.post(this.apiUrl, data, httpOptions).pipe(
       catchError(this.handleError)
     );

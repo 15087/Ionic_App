@@ -18,8 +18,8 @@ const routes: Routes = [
     loadChildren: () => import('./pages/add-category/add-category.module').then( m => m.AddCategoryPageModule)
   },
   {
-    path: 'delete-category',
-    loadChildren: () => import('./pages/delete-category/delete-category.module').then( m => m.DeleteCategoryPageModule)
+    path: 'categories/:id',
+    loadChildren: () => import('./pages/edit-category/edit-category.module').then( m => m.EditCategoryPageModule)
   },
 ];
 

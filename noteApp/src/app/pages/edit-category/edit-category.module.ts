@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { DeleteCategoryPageRoutingModule } from './delete-category-routing.module';
+import { EditCategoryPageRoutingModule } from './edit-category-routing.module';
 
-import { DeleteCategoryPage } from './delete-category.page';
+import { EditCategoryPage } from './edit-category.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    DeleteCategoryPageRoutingModule
+    EditCategoryPageRoutingModule
   ],
-  declarations: [DeleteCategoryPage]
+  declarations: [EditCategoryPage]
 })
-export class DeleteCategoryPageModule {}
+export class EditCategoryPageModule {}
