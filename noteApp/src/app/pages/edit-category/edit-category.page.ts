@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
-import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators, FormArray } from '@angular/forms';
+import { FormControl, FormGroupDirective, FormBuilder, FormGroup, ReactiveFormsModule, NgForm, Validators, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-category',

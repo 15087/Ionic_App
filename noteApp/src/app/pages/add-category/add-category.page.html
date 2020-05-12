@@ -18,11 +18,11 @@
     <form [formGroup]="categoryForm">
       <ion-item>
         <ion-label position="floating">Name: </ion-label>
-        <ion-input type="text" formControlName="name"></ion-input>
+        <ion-input placeholder="Enter the name" type="text" formControlName="name"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-button shape="round" color="danger" routerLink="/category-list">Cancel</ion-button>
-        <ion-button shape="round" color="primary" [disabled]="!categoryForm.valid" routerLink="/category-list" (click)="newCategory()">Add new</ion-button>
+        <ion-button shape="round" color="danger" routerLink="/categories">Cancel</ion-button>
+        <ion-button shape="round" color="primary" [disabled]="!categoryForm.valid" routerLink="/categories" (click)="addCategory()">Add</ion-button>
       </ion-item>
     </form>
     </ion-card>
