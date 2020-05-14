@@ -14,16 +14,19 @@
         <ion-item>{{item.title}}</ion-item>
       </ion-nav-link>
       <ion-item-options side="end">
-        <ion-button type="submit" routerLink="/notes/{{item.id}}/edit">Edit</ion-button>
-        <ion-button type="submit" color="danger" (click)="deleteNote(item.id)">Delete</ion-button>
+        <ion-button type="submit" routerLink="/notes/{{item.id}}/edit">
+          <ion-icon name="pencil-outline"></ion-icon>
+        </ion-button>
+        <ion-button type="submit" color="danger" (click)="deleteNote(item.id)">
+          <ion-icon name="trash-outline"></ion-icon>
+        </ion-button>
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
   
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button color="primary" routerLink="/add-note">
-        <ion-icon name="add"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
-
+  <div id="fixedButton">
+    <ion-button shape="round" color="primary" routerLink="/add-note">
+      <ion-icon name="add"></ion-icon>
+    </ion-button>
+  </div>
 </ion-content>

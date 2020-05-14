@@ -4,11 +4,11 @@
       <ion-content>
         <ion-list id="inbox-list">
           <ion-list-header>Menu</ion-list-header>
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none"
+          <ion-menu-toggle auto-hide="false" *ngFor="let elem of pages; let i = index">
+            <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[elem.url]" lines="none"
               detail="false" [class.selected]="selectedIndex == i">
-              <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
-              <ion-label>{{ p.title }}</ion-label>
+              <ion-icon slot="start" [ios]="elem.icon + '-outline'" [md]="elem.icon + '-sharp'"></ion-icon>
+              <ion-label>{{ elem.title }}</ion-label>
             </ion-item>
           </ion-menu-toggle>
         </ion-list>

@@ -21,8 +21,12 @@
         <ion-input placeholder="Enter the name" type="text" formControlName="name"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-button shape="round" color="danger" routerLink="/categories">Cancel</ion-button>
-        <ion-button shape="round" color="primary" [disabled]="!categoryForm.valid" routerLink="/categories" (click)="addCategory()">Add</ion-button>
+        <ion-button shape="round" color="danger" routerLink="/categories">
+          <ion-icon name="return-up-back-outline"></ion-icon>
+        </ion-button>
+        <ion-button shape="round" color="primary" [disabled]="!categoryForm.valid" routerLink="/categories" (click)="addCategory()">
+          <ion-icon name="save-outline"></ion-icon>
+        </ion-button>
       </ion-item>
     </form>
     </ion-card>

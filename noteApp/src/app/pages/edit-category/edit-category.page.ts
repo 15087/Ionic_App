@@ -12,36 +12,52 @@ import { FormControl, FormGroupDirective, FormBuilder, FormGroup, ReactiveFormsM
 })
 export class EditCategoryPage implements OnInit {
 
+  category = {name : "Name"};
   categoryForm: FormGroup;
 
-  constructor(private categoryService: CategoryService, public loadingController: LoadingController, private router: Router, private route: ActivatedRoute, private formBuilder: FormBuilder) {
+  constructor(public api: CategoryService,
+    public loadingController: LoadingController,
+    private route: ActivatedRoute,
+    public router: Router,
+    private formBuilder: FormBuilder) {
+    this.getCategory(this.route.snapshot.paramMap.get("id"));
     this.categoryForm = this.formBuilder.group({
-      'name' : [null, Validators.required],
+      name : [null, Validators.required],
     });
   }
 
-  ngOnInit() {
-  }
 
   async getCategory(id) {
-    const loading = await this.loadingController.create();
-    await this.categoryService.getCategory(id).subscribe(res => {
-      this.categoryForm.controls['name'].setValue(res.name);
-    });
+    const loading = await this.loadingController.create({message: "Loading"});
+    await loading.present();
+    await this.api.getCategory(id).subscribe(
+      (data) => {
+        this.category = {
+          name: data.name,
+        };
+        loading.dismiss();
+      },
+      (err) => {
+        console.log(err);
+        loading.dismiss();
+      }
+    );
   }
 
   async editCategory() {
     const loading = await this.loadingController.create();
     await loading.present();
-    await this.categoryService.editCategory(this.route.snapshot.paramMap.get('id'), this.categoryForm.value)
-    .subscribe(res => {
-      let id = res['id'];
-        this.router.navigate(['/categories', JSON.stringify(id)]);
+    await this.api.editCategory(this.route.snapshot.paramMap.get('id'), this.categoryForm.value)
+    .subscribe(data => {
+        this.router.navigate(['/categories']);
         loading.dismiss();
       }, (err) => {
         console.log(err);
         loading.dismiss();
     });
+  }
+
+  ngOnInit() {
   }
 
 }

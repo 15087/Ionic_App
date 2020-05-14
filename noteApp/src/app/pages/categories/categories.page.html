@@ -20,16 +20,20 @@
         {{item.name}}
       </ion-item>
       <ion-item-options side="end">
-        <ion-button type="submit" routerLink="/categories/{{item.id}}">Edit</ion-button>
-        <ion-button type="submit" color="danger" (click)="deleteCategory(item.id)">Delete</ion-button>
+        <ion-button type="submit" routerLink="/categories/{{item.id}}">
+          <ion-icon name="pencil-outline"></ion-icon>
+        </ion-button>
+        <ion-button type="submit" color="danger" (click)="deleteCategory(item.id)">
+          <ion-icon name="trash-outline"></ion-icon>
+        </ion-button>
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button color="primary" routerLink="/add-category">
-        <ion-icon name="add"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+  <div id="fixedButton">
+    <ion-button shape="round" color="primary" routerLink="/add-category">
+      <ion-icon name="add"></ion-icon>
+    </ion-button>
+  </div>
 
 </ion-content>
