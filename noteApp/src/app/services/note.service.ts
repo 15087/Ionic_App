@@ -53,7 +53,7 @@ export class NoteService {
       .pipe(map(this.extractData), catchError(this.handleError));
   }
 
-  postNote(data): Observable<any> {
+  addNote(data): Observable<any> {
     return this.http
       .post(apiUrl, data, httpOptions)
       .pipe(catchError(this.handleError));
