@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      {{note.title}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      {{note.content}}
+    </ion-item>
+
+    <ion-item>
+      Date : {{note.date}}
+    </ion-item>
+
+    <ion-item>
+      Category : {{note.category.name}}
+    </ion-item>
+  </ion-list>
+  <div id="fixedButton">
+    <ion-button shape="round" color="primary" routerLink="/notes">Cancel</ion-button>
+  </div>
+
+
+</ion-content>

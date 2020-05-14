@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Notes List</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngFor="let nt of notes">
+    <ion-item-sliding>
+      <ion-nav-link routerLink="/notes/{{nt.id}}">
+        <ion-item>{{nt.title}}</ion-item>
+      </ion-nav-link>
+      <ion-item-options side="end">
+        <button routerLink="/notes/{{nt.id}}/edit">Edit</button>
+        <button (click)="deleteNote(nt.id)">Delete</button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+  
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="primary" routerLink="/add-note">
+        <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

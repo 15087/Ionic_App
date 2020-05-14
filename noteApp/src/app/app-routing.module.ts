@@ -5,7 +5,7 @@ const routes: Routes = [
   
   {
     path: '',
-    redirectTo: 'categories',
+    redirectTo: 'notes',
     pathMatch: 'full'
   },
   {
@@ -21,11 +21,27 @@ const routes: Routes = [
     path: 'categories/:id',
     loadChildren: () => import('./pages/edit-category/edit-category.module').then( m => m.EditCategoryPageModule)
   },
+  {
+    path: 'notes',
+    loadChildren: () => import('./pages/notes/notes.module').then( m => m.NotesPageModule)
+  },
+  {
+    path: 'notes/:id',
+    loadChildren: () => import('./pages/note-details/note-details.module').then( m => m.NoteDetailsPageModule)
+  },
+  {
+    path: 'add-note',
+    loadChildren: () => import('./pages/add-note/add-note.module').then( m => m.AddNotePageModule)
+  },
+  {
+    path: 'notes/:id/edit',
+    loadChildren: () => import('./pages/edit-note/edit-note.module').then( m => m.EditNotePageModule)
+  },
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules, onSameUrlNavigation: "reload" })
   ],
   exports: [RouterModule]
 })
